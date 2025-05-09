@@ -1,10 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Select the button (add one in the HTML file)
-    const button = document.createElement("button");
-    button.textContent = "Click me!";
-    document.body.appendChild(button);
-
-    button.addEventListener("click", function () {
-        document.body.style.backgroundColor = "lightblue";
-    });
+document.querySelector('.cta-button').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
 });
