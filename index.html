@@ -4,56 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crime Thriller Portfolio</title>
+    <link rel="stylesheet" href="crime-thriller.css">
 </head>
 <body>
 
     <!-- Header Section -->
     <header>
-        <h1>Crime Thriller Portfolio</h1>
-        <p>Your mysterious journey into sustainability begins here...</p>
+        <h1></h1> <!-- Typewriter effect will fill this -->
+        <p>Investigating the Unknown | Solving the Mysteries of Sustainability</p>
     </header>
 
     <!-- Navigation Bar -->
     <nav>
-        <a href="#suspense">Case Files</a>
-        <a href="#about">About the Case</a>
+        <a href="#about">About Me</a>
+        <a href="#cases">My Cases</a>
         <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Suspense Section (Case Files) -->
-    <section id="suspense" class="section">
-        <h2>Case Files</h2>
-        <div class="box" id="box1">
-            <h3>Case 1: The Disappearing Evidence</h3>
-            <p>This case investigates the missing documents in the city’s biggest corruption scandal.</p>
-        </div>
-        <div class="box" id="box2">
-            <h3>Case 2: The Phantom Witness</h3>
-            <p>A mysterious figure appears in the city's surveillance footage, leading to a chase for the truth.</p>
-        </div>
-        <div class="box" id="box3">
-            <h3>Case 3: The Blood-Stained Letters</h3>
-            <p>Suspense builds around a series of cryptic letters that may hold the key to solving a notorious crime.</p>
-        </div>
-    </section>
-
     <!-- About Section -->
     <section id="about" class="section">
-        <h2>About the Case</h2>
-        <p>This case revolves around the use of sustainability practices in an urban landscape, highlighting the role of ecosystem services in preserving the environment amidst industrial and urban growth.</p>
+        <h2>About Me</h2>
+        <p>
+            I am a Sustainability Detective, uncovering the hidden stories of climate change, water conservation, and ecosystem survival. My work is a series of investigative adventures, mapping out the crucial elements that help our planet thrive amidst chaos and corruption. Follow my cases, and join me as I solve the mysteries of sustainability.
+        </p>
+    </section>
+
+    <!-- Cases (Portfolio) Section -->
+    <section id="cases" class="section">
+        <h2>My Cases</h2>
+        <div class="box-container">
+            <div class="box">
+                <h3>Case 001: The Disappearing River</h3>
+                <p>Mapping the lifelines of water resources in the Gir Forest and discovering hidden channels.</p>
+            </div>
+            <div class="box">
+                <h3>Case 002: The Polluted Veins</h3>
+                <p>Tracing the origins of contamination and its impact on local ecosystems.</p>
+            </div>
+            <div class="box">
+                <h3>Case 003: The Phantom Footprint</h3>
+                <p>Tracking carbon footprints across industries and their effect on sustainability.</p>
+            </div>
+            <div class="box">
+                <h3>Case 004: The Silent Drought</h3>
+                <p>Investigating the water scarcity crisis in isolated communities.</p>
+            </div>
+            <div class="box">
+                <h3>Case 005: The Green Crime</h3>
+                <p>Exposing environmental violations and the politics behind greenwashing.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p>If you have any information or questions, don't hesitate to reach out.</p>
+        <h2>Contact Me</h2>
+        <p>Want to solve a mystery together? Reach out to me at:</p>
+        <p><strong>Email:</strong> detective.jaya@sustainability.com</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Crime Thriller Portfolio. All rights reserved.</p>
-        <a href="mailto:contact@example.com">Contact</a>
+        <p>&copy; 2025 Crime Thriller Portfolio. All rights reserved. | Designed with suspense and mystery.</p>
     </footer>
 
+    <!-- Modal Structure (Hidden by default, appears when a case is clicked) -->
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 class="modal-title">Case Details</h3>
+            <p class="modal-description">This is a mysterious case, yet to be uncovered...</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="crime-thriller.js"></script>
 </body>
 </html>
