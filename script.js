@@ -1,28 +1,33 @@
-// Smooth Scroll Effect for Navigation Links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent the default anchor behavior
-        const targetId = this.getAttribute('href').substring(1); // Get the target section ID
-        const targetSection = document.getElementById(targetId); // Get the section element
-        window.scrollTo({
-            top: targetSection.offsetTop - 60, // Scroll to the section, accounting for the nav bar height
-            behavior: 'smooth' // Smooth scrolling animation
+// Wait for the DOM to fully load before running any scripts
+document.addEventListener('DOMContentLoaded', function () {
+
+    // Select all boxes
+    const boxes = document.querySelectorAll('.box');
+
+    // Function to reveal boxes with animation
+    function revealBoxes() {
+        boxes.forEach((box, index) => {
+            // Delay each box reveal to create suspense
+            setTimeout(() => {
+                box.classList.add('revealed');
+            }, index * 500); // Delay increases for each box (500ms between each)
+        });
+    }
+
+    // Trigger box reveal when the page is loaded
+    revealBoxes();
+
+    // Optionally: Trigger the reveal again when user scrolls down to a box
+    window.addEventListener('scroll', function () {
+        boxes.forEach((box) => {
+            const boxPosition = box.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            // Check if the box is in the visible area of the screen
+            if (boxPosition < windowHeight - 50) {
+                box.classList.add('revealed');
+            }
         });
     });
-});
 
-// Case File Reveal Effect (Suspense Style)
-const caseFiles = document.querySelectorAll('.case-file');
-
-caseFiles.forEach(file => {
-    file.style.opacity = 0; // Start with hidden files
-    file.style.transition = "opacity 1s ease-in-out"; // Fade-in transition
-
-    file.addEventListener('mouseover', () => {
-        file.style.opacity = 1; // Reveal the case file when hovered
-    });
-
-    file.addEventListener('mouseout', () => {
-        file.style.opacity = 0; // Hide the case file when not hovered
-    });
 });
