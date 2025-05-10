@@ -1,36 +1,56 @@
-// Scroll Animation
-const boxes = document.querySelectorAll('.box');
+// JavaScript for Interactive Features
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+// Function to toggle the dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle("dark-mode");
+}
+
+// Function to show a popup when a section is clicked
+function showPopup(section) {
+    const popup = document.createElement('div');
+    popup.classList.add('popup');
+    popup.innerHTML = `<div class="popup-content">
+                        <span class="close-btn" onclick="closePopup()">×</span>
+                        <h2>${section} Details</h2>
+                        <p>This section contains more detailed information on ${section}.</p>
+                      </div>`;
+    document.body.appendChild(popup);
+}
+
+// Function to close the popup
+function closePopup() {
+    const popup = document.querySelector('.popup');
+    if (popup) {
+        popup.remove();
+    }
+}
+
+// Function to animate elements as they appear in the viewport
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.animate');
+    const windowHeight = window.innerHeight;
+
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        if (elementTop < windowHeight - 100) {
+            element.classList.add('visible');
         }
     });
-});
+}
 
-boxes.forEach(box => {
-    observer.observe(box);
-});
+// Event listener for scroll to trigger animations
+window.addEventListener('scroll', animateOnScroll);
 
-// Modal Logic
-const modal = document.querySelector('.modal');
-const modalContent = document.querySelector('.modal-content');
-const closeBtn = document.querySelector('.close');
+// Event listener for document ready to initialize
+document.addEventListener('DOMContentLoaded', () => {
+    animateOnScroll(); // Initialize animation on load
 
-boxes.forEach(box => {
-    box.addEventListener('click', () => {
-        modal.style.display = 'block';
-        modalContent.querySelector('.modal-title').innerText = box.querySelector('h3').innerText;
+    // Adding event listeners to sections for popup
+    const sections = document.querySelectorAll('.section-title');
+    sections.forEach(section => {
+        section.addEventListener('click', () => {
+            showPopup(section.textContent);
+        });
     });
-});
-
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-    }
 });
